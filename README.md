@@ -6,3 +6,6 @@
 
 ###Using docker:
 docker-compose up should start both the db and the app on your localhost
+
+# Testing the app
+`docker-compose exec web bundle exec rspec <file name>
