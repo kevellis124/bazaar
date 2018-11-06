@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ -f /tmp/pids/server.pid ]; then
-  rm /tmp/pids/server.pid
+if [ -f tmp/pids/server.pid ]; then
+  rm tmp/pids/server.pid
 fi
 
-rails s
+rails server
