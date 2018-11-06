@@ -6,3 +6,11 @@ services:
     - .:/code
     ports:
     - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: bazaar_database
+      DB_USER: postgres
+  db:
+    image: postgres
