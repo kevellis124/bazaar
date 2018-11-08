@@ -54,15 +54,11 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
 end
-
+gem 'capybara-webkit'
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'capybara-webkit'
   gem 'database_cleaner'
-
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem "chromedriver-helper"
   gem "rubocop", "~> 0.60.0", require: false
   gem "rubocop-rails_config"
 end

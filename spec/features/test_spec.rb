@@ -1,9 +1,8 @@
-require_relative '../init'
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe 'Search Page', type: :feature do
-  it 'includes the word DuckDuckGo' do
-    visit 'https://www.duckduckgo.com'
-    expect(page).to have_text('DuckDuckGo')
+feature 'Home' do
+  it 'should not have JavaScript errors', :js => true do
+    visit '/'
+    expect(page).not_to have_errors
   end
 end
