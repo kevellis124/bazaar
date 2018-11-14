@@ -19,3 +19,10 @@ finally you can run the application as:
 # Testing the app
 * `docker-compose exec web bundle exec rspec <file name>` will test a specific file 
 * `docker-compose exec web bundle exec rspec` will test all files
+
+
+# Deploying to Production
+* precompile the assets with `docker-compose exec web rails assets:precompile`
+* use `heroku login` to login with heroku
+* use `heroku container:push web -a young-thicket-52723` to push image to heroku container repository 
+* use `heroku container:release web -a young-thicket-52723` to create a new release using the image 
