@@ -19,6 +19,11 @@ finally you can run the application as:
 # Testing the app
 * `docker-compose exec web bundle exec rspec <file name>` will test a specific file 
 * `docker-compose exec web bundle exec rspec` will test all files
+* Adding feature tests:
+    *   Follow existing convention, and add a tag to the example group like:
+        `describe "visit root", :type => feature do` which makes it a feature.
+    *   `rspec` runs both features and normal specs
+
 
 
 # Deploying to Production
