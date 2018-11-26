@@ -9,8 +9,6 @@ services:
     depends_on:
       - db
     environment:
-      DB_HOST: db
-      DB_NAME: bazaar_database
-      DB_USER: postgres
+      DATABASE_URL: postgres://postgres:@db:5432/bazaar_database_development
   db:
     image: postgres

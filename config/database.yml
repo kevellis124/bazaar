@@ -6,14 +6,12 @@
 #
 default: &default
   adapter: postgresql
-  host: <%= ENV.fetch("DB_HOST") %>
+  url: <%= ENV.fetch("DATABASE_URL") %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  user: <%= ENV.fetch("DB_USER") %>
   timeout: 5000
 
 
 development:
-  database: <%= ENV.fetch("DB_NAME") %>_development
   <<: *default
 
 
@@ -21,7 +19,6 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  database: <%= ENV.fetch("DB_NAME") %>_test
   <<: *default
 
 production:
