@@ -39,6 +39,8 @@ gem "jbuilder", "~> 2.5"
 # Reduces boot times through caching; required in config/boot.rb
 # THIS BREAKS IF YOU ARE USING WINDOWS EVEN AS A HOST FOR DOCKER. WINDOWS BAD
 # gem 'bootsnap', '>= 1.1.0', require: false
+#
+gem "devise"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
