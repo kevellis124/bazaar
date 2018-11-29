@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
+    @product.uploaded_file = params[:image]
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -41,6 +41,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    puts(@product.image)
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -62,6 +63,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show_image
+    set_product
+    send_data(@product.image, :type => 'image/png', :filename => 'j.png', :disposition => 'inline')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -70,6 +76,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:price, :name, :description)
+      params.require(:product).permit(:price, :name, :description, :image)
     end
 end
