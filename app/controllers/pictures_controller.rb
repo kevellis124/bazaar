@@ -10,6 +10,25 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
+    @picture = Picture.find(param[:id])
+    send_data @picture.file_contents, :filename => @picture.filename, :type => @picture.content_type
+  end
+
+  def create
+    return if params[:picture].blank?
+
+    @picture = Picture.new
+    @picture.uploaded_file = params[:picture]
+
+    respond_to do |format|
+      if @picture.save
+        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.json { render :show, status: :created, location: @picture }
+      else
+        format.html { render :new }
+        format.json { render json: @picture.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /pictures/new
