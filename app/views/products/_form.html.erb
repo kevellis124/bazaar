@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <% form_tag 'create', :multipart => true do %>
+    <%= file_field_tag 'attachment' %>
+    <%= submit_tag "Send Attachment" %>
+  <% end %>
   <div class = "field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :name %>
@@ -25,6 +28,11 @@
   <div class = "field">
     <%= form.label :description %>
     <%= form.text_area :description, id: :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :image %>
   </div>
 
   <div class="actions">
